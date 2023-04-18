@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Weather APP
       </header>
+      <form>
+        <h2>Add new Activity</h2>
+
+        <div className = "form__input">
+        <label forHtml = "name">Name:</label>
+        <input name="name" type ="text"></input>
+        </div>
+
+        <div className = "form__checkbox">
+        <label forHtml = "checkbox">Good-weather activity:</label>
+        <input name="checkbox" type="checkbox"></input>
+        </div>
+        
+        <div className="form__button-wrapper">
+        <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   );
 }
