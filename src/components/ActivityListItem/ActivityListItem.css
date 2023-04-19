@@ -1,0 +1,24 @@
+@import "../../App.css";
+
+.activity__list--wrapper {
+  display: flex;
+  margin-bottom: 20px;
+}
+.activity__list--item {
+  list-style-type: none;
+}
+
+.item-name-wrapper {
+  width: 80%;
+}
+
+.delete-button-container {
+  width: 20%;
+}
+
+.activity__list__item--button {
+  background-color: var(--tertiary-color);
+  border-radius: 5px;
+  border: none;
+  font-weight: 400;
+}

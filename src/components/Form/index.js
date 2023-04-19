@@ -1,3 +1,5 @@
+import "../Form/Form.css";
+
 export default function Form({ onAddActivity }) {
   // get the data from the form
   function handleSubmit(event) {
@@ -19,17 +21,21 @@ export default function Form({ onAddActivity }) {
       <h2>Add new Activity</h2>
 
       <div className="form__input">
-        <label htmlFor="name">Name:</label>
-        <input name="name" type="text"></input>
+        <label htmlFor="name"></label>
+        <input name="name" type="text" className="form__input--input"></input>
       </div>
 
       <div className="form__checkbox">
-        <label htmlFor="isForGoodWeather">Good-weather activity:</label>
+        <label htmlFor="isForGoodWeather" className="form__checkbox--label">
+          Good-weather activity:
+        </label>
         <input name="isForGoodWeather" type="checkbox"></input>
       </div>
 
       <div className="form__button-wrapper">
-        <button type="submit">Submit</button>
+        <button type="submit" className="form__button">
+          Submit
+        </button>
       </div>
     </form>
   );
