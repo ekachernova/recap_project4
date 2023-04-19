@@ -1,6 +1,8 @@
 import "./App.css";
 import Form from "./components/Form";
 import ActivityList from "./components/ActivityList";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 // import ActivityListItem from "./components/ActivityListItem";
 // import { useState } from "react";
 import { useEffect, useState } from "react";
@@ -44,7 +46,7 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">Weather APP</header>
+      <Header />
       <Form onAddActivity={handleAddActivity} />
       {weather.isGoodWeather ? 
       <>      
@@ -61,6 +63,8 @@ function App() {
       }
       <ActivityList activities={activities} weather={weather} onDeleteActivity={handleDeleteActivity}>
         </ActivityList>
+      <Footer className="App-footer"/>
+
     </div>
   );
 }
