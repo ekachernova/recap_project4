@@ -13,19 +13,23 @@ function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
-  const [weather,setWeather] = useState(true)
+  const [weather,setWeather] = useState({"location":"Arctic","temperature":-30,"condition":"🌨️","isGoodWeather":false})
 
 
   useEffect(() =>{
     async function weatherFetch() {
-      const response = await fetch("https://example-apis.vercel.app/api/weather");
+      const response = await fetch("https://example-apis.vercel.app/api/weather/rainforest");
+      // const response = await fetch("https://example-apis.vercel.app/api/weather/arctic");
+
       const weather = await response.json();
       setWeather(weather);
+      console.log(weather);
 
     }
     weatherFetch();
-    console.log("weather: ",weather);
-  }, [])
+    // console.log("weather: ",weather);
+  }, []);
+ 
 
   // rendering activities
   function handleAddActivity(newActivity) {
@@ -33,19 +37,21 @@ function App() {
     console.log("activities:", activities);
   }
 
+
   
   
   return (
     <div className="App">
       <header className="App-header">Weather APP</header>
       <Form onAddActivity={handleAddActivity} />
-      {weather ? 
+      {weather.isGoodWeather ? 
       <>      
       <div>{weather.condition}</div>
       <div>{weather.temperature} °C</div> 
       <h2>The weather is awesome! Go outside and:</h2>
       </> 
-      : <>
+      : 
+      <>
       <div>{weather.condition}</div>
       <div>{weather.temperature} °C</div> 
       <h2>Bad weather outside! Here's what you can do now:</h2>
@@ -56,5 +62,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
