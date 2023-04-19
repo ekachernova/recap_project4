@@ -16,6 +16,16 @@ function App() {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
     console.log("activities:", activities);
   }
+
+  const isGoodWeather = true;
+
+  const badWeatherActivity = activities.filter(
+    (activity) => !activity.isForGoodWeather
+  );
+  const goodWeatherActivity = activities.filter(
+    (activity) => activity.isForGoodWeather
+  );
+
   return (
     <div className="App">
       <header className="App-header">Weather APP</header>
