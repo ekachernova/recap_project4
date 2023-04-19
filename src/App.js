@@ -19,7 +19,7 @@ function App() {
   useEffect(() =>{
     async function weatherFetch() {
       const response = await fetch("https://example-apis.vercel.app/api/weather/rainforest");
-      // const response = await fetch("https://example-apis.vercel.app/api/weather/arctic");
+      // const response = await fetch("https://example-apis.vercel.app/api/weather/europe");
 
       const weather = await response.json();
       setWeather(weather);
@@ -37,8 +37,10 @@ function App() {
     console.log("activities:", activities);
   }
 
-
-  
+  function handleDeleteActivity(activity) {
+    const idToDelete = activity.id
+    setActivities(activities.filter((activity)=> activity.id !== idToDelete))
+  }  
   
   return (
     <div className="App">
@@ -57,7 +59,7 @@ function App() {
       <h2>Bad weather outside! Here's what you can do now:</h2>
       </>
       }
-      <ActivityList activities={activities} weather={weather}>
+      <ActivityList activities={activities} weather={weather} onDeleteActivity={handleDeleteActivity}>
         </ActivityList>
     </div>
   );
