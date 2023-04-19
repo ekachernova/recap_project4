@@ -1,11 +1,12 @@
 import "./ActivityList.css";
+
 import ActivityListItem from "../ActivityListItem";
 
-export default function ActivityList({ activities, isGoodWeather }) {
+export default function ActivityList({ activities, weather }) {
   return (
     <ul className="activity__list">
 
-    {isGoodWeather
+    {weather
         ? activities
             .filter((activity) => activity.isForGoodWeather)
             .map((activity) => {
