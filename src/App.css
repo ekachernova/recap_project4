@@ -12,6 +12,12 @@
   font-family: "Raleway", sans-serif;
   background-color: white;
   color: black;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.weather__container {
+  font-size: 60px;
 }
 
 h2 {
