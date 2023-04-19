@@ -9,29 +9,32 @@ import { useEffect, useState } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 
-
 function App() {
   // const [activities, setActivities] = useState([]);
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
-  const [weather,setWeather] = useState({"location":"Arctic","temperature":-30,"condition":"🌨️","isGoodWeather":false})
+  const [weather, setWeather] = useState({
+    location: "Arctic",
+    temperature: -30,
+    condition: "🌨️",
+    isGoodWeather: false,
+  });
 
-
-  useEffect(() =>{
+  useEffect(() => {
     async function weatherFetch() {
-      const response = await fetch("https://example-apis.vercel.app/api/weather/rainforest");
+      const response = await fetch(
+        "https://example-apis.vercel.app/api/weather/rainforest"
+      );
       // const response = await fetch("https://example-apis.vercel.app/api/weather/europe");
 
       const weather = await response.json();
       setWeather(weather);
       console.log(weather);
-
     }
     weatherFetch();
     // console.log("weather: ",weather);
   }, []);
- 
 
   // rendering activities
   function handleAddActivity(newActivity) {
@@ -40,34 +43,39 @@ function App() {
   }
 
   function handleDeleteActivity(activity) {
-    const idToDelete = activity.id
-    setActivities(activities.filter((activity)=> activity.id !== idToDelete))
-  }  
-  
+    const idToDelete = activity.id;
+    setActivities(activities.filter((activity) => activity.id !== idToDelete));
+  }
+
   return (
     <div className="App">
       <Header />
-      <Form onAddActivity={handleAddActivity} />
-      {weather.isGoodWeather ? 
-      <>      
-      <div>{weather.condition}</div>
-      <div>{weather.temperature} °C</div> 
-      <h2>The weather is awesome! Go outside and:</h2>
-      </> 
-      : 
-      <>
-      <div>{weather.condition}</div>
-      <div>{weather.temperature} °C</div> 
-      <h2>Bad weather outside! Here's what you can do now:</h2>
-      </>
-      }
-      <ActivityList activities={activities} weather={weather} onDeleteActivity={handleDeleteActivity}>
-        </ActivityList>
-      <Footer className="App-footer"/>
+      {weather.isGoodWeather ? (
+        <>
+          <div className="weather-container">
+            {weather.condition}
+            {weather.temperature} °C
+          </div>
+          {/* <div>{weather.temperature} °C</div> */}
+          <h2>The weather is awesome! Go outside and:</h2>
+        </>
+      ) : (
+        <>
+          <div>{weather.condition}</div>
+          <div>{weather.temperature} °C</div>
+          <h2>Bad weather outside! Here's what you can do now:</h2>
+        </>
+      )}
 
+      <Form onAddActivity={handleAddActivity} />
+      <ActivityList
+        activities={activities}
+        weather={weather}
+        onDeleteActivity={handleDeleteActivity}
+      ></ActivityList>
+      <Footer className="App-footer" />
     </div>
   );
 }
-
 
 export default App;
