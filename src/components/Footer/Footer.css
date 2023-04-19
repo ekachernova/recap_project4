@@ -1,18 +1,18 @@
 @import "../../App.css";
 
-.App-header {
+.App-footer {
   /* background-color:var(--secondary-color); */
-  min-height: 100px;
+  min-height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 35px;
-  color: white;
+  font-size: 15px;
+  color: black;
   font-weight: 600;
   /* border-bottom: 1px solid black; */
   position: sticky;
   z-index: 100;
-  top: 0;
-  background-color: var(--secondary-color);
+  bottom: 0;
+  background-color: var(--primary-color);
 }
