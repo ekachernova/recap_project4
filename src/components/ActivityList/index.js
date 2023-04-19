@@ -10,3 +10,12 @@ export default function ActivityList({ activities }) {
     </ul>
   );
 }
+
+// const isGoodWeather = true;
+
+// const badWeatherActivity = activities.filter(
+//   (activity) => !activity.isForGoodWeather
+// );
+// const goodWeatherActivity = activities.filter(
+//   (activity) => activity.isForGoodWeather
+// );
