@@ -7,12 +7,7 @@ export default function Form({ onAddActivity }) {
     const formData = new FormData(event.target);
     const newActivity = Object.fromEntries(formData);
 
-    // if (event.target.elements.isForGoodWeather.checked) {
-    //   console.log("is checked");
-    // }
     onAddActivity(newActivity);
-    // console.log(newActivity);
-    // console.log(event.target.isForGoodWeather.checked);
     event.target.reset();
     event.target.elements.name.focus();
   }

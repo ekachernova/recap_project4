@@ -6,6 +6,8 @@
 }
 .activity__list--item {
   list-style-type: none;
+  font-weight: 500;
+  text-align: left;
 }
 
 .item-name-wrapper {
