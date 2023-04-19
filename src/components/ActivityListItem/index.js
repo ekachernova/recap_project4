@@ -2,7 +2,7 @@ import "./ActivityListItem.css";
 
 export default function ActivityListItem({ activity }) {
   return (
-    <li className="" key={activity.id}>
+    <li className="activity__list--item" key={activity.id}>
       {activity.name}
     </li>
   );

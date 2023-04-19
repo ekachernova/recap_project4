@@ -1,21 +1,23 @@
 import "./ActivityList.css";
 import ActivityListItem from "../ActivityListItem";
 
-export default function ActivityList({ activities }) {
+export default function ActivityList({ activities, isGoodWeather }) {
   return (
-    <ul className="">
-      {activities.map((activity) => {
-        return <ActivityListItem activity={activity}></ActivityListItem>;
-      })}
+    <ul className="activity__list">
+
+    {isGoodWeather
+        ? activities
+            .filter((activity) => activity.isForGoodWeather)
+            .map((activity) => {
+              return <ActivityListItem activity={activity} />;
+            })
+        : activities
+            .filter((activity) => !activity.isForGoodWeather)
+            .map((activity) => {
+              return <ActivityListItem activity={activity} />;
+            })}
     </ul>
   );
 }
 
-// const isGoodWeather = true;
 
-// const badWeatherActivity = activities.filter(
-//   (activity) => !activity.isForGoodWeather
-// );
-// const goodWeatherActivity = activities.filter(
-//   (activity) => activity.isForGoodWeather
-// );
