@@ -1,0 +1,6 @@
+.activity__list {
+  border: 3px solid var(--secondary-color);
+  border-radius: 10px;
+  margin: 20px;
+  padding-top: 10px;
+}
