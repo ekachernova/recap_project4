@@ -52,17 +52,18 @@ function App() {
       <Header />
       {weather.isGoodWeather ? (
         <>
-          <div className="weather-container">
+          <div className="weather__container">
             {weather.condition}
             {weather.temperature} °C
           </div>
-          {/* <div>{weather.temperature} °C</div> */}
           <h2>The weather is awesome! Go outside and:</h2>
         </>
       ) : (
         <>
-          <div>{weather.condition}</div>
-          <div>{weather.temperature} °C</div>
+          <div className="weather__container">
+            {weather.condition}
+            {weather.temperature} °C
+          </div>
           <h2>Bad weather outside! Here's what you can do now:</h2>
         </>
       )}
