@@ -39,11 +39,19 @@ function App() {
     <div className="App">
       <header className="App-header">Weather APP</header>
       <Form onAddActivity={handleAddActivity} />
-      <div>{weather.temperature} °C</div>
+      {weather ? 
+      <>      
       <div>{weather.condition}</div>
-      {weather ? <h2>The weather is awesome! Go outside and:</h2> : <h2>Bad weather outside! Here's what you can do now:</h2>}
-      <ActivityList activities={activities} isGoodWeather={activities.isGoodWeather}>
-        {/* <ActivityListItem /> */}
+      <div>{weather.temperature} °C</div> 
+      <h2>The weather is awesome! Go outside and:</h2>
+      </> 
+      : <>
+      <div>{weather.condition}</div>
+      <div>{weather.temperature} °C</div> 
+      <h2>Bad weather outside! Here's what you can do now:</h2>
+      </>
+      }
+      <ActivityList activities={activities} weather={weather}>
         </ActivityList>
     </div>
   );
